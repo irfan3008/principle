@@ -1,0 +1,23 @@
+ftest<-read.csv(file.choose(),sep=",",header=T)
+var.test(ftest$SepalLengthCm,ftest$PetalLengthCm,alternative = "two.sided")
+
+#oneway anova
+data1<-read.csv(file.choose(),sep=",",header=T)
+names(data1)
+
+summary(data1)
+
+anv<-aov(formula=SepalLengthCm~SepalWidthCm,data=data1)
+summary(anv)
+
+#two way anova
+
+data2 <-read.csv(file.choose(),sep=",",header=T)
+names(data2)
+
+head(data2)
+
+summary(data2)
+
+anv1<-aov(formula=SepalLengthCm~SepalWidthCm+Species+SepalWidthCm*Species,data=data2)
+summary(anv1)
